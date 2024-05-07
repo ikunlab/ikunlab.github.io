@@ -1,38 +1,40 @@
 ---
-title: Hello World
+title: 多人协作
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+## Previously (前情提要)
 
-### Create a new post
+* 方法参考 https://blog.csdn.net/Yongzili/article/details/98535710
+* 【重要】源文件在 Hexo 分支，博客文件在 main 分支
 
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
+### 拉取仓库并初始化
 
 ``` bash
-$ hexo server
+git pull git@github.com:ikunlab/ikunlab.github.io.git
+cd ikunlab.github.io
+ls
+git branch -a
+git switch Hexo
+ls
+npm install hexo && npm install && npm install hexo-deployer-git #（不需要hexo init）
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+### 更新文章
 
-### Generate static files
+* 同步下仓库先
 
 ``` bash
-$ hexo generate
+git pull origin Hexo
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
+* 编辑source文件夹内的md后，运行
 
 ``` bash
-$ hexo deploy
-```
+#同步源文件
+git add .
+git commit -m "文字描述"
+git push origin Hexo 
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+#更新博客
+hexo clean && hexo g -d
+```
