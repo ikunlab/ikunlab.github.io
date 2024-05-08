@@ -38,4 +38,3 @@ git push origin Hexo
 #更新博客
 hexo clean && hexo g -d
 ```
-# conflict test funlab
